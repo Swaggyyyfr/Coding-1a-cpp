@@ -10,24 +10,35 @@ using namespace std;
 
 int main() {
     
+    vector<string> videoGames;
 
     while(true) {
      
         int chapter = 0;
         cout << "Welcome to the 'Favorite Game Franchises' list.\n"; 
         cout << "What program would you like to run?\n"; 
-        cout << "Press 1 to show list.\n"; 
-        cout << "Press 2 to add to list.\n"; 
-        cout << "Press 3 to remove from list.\n"; 
-        cout << "Press 4 to edit the list.\n";
-        cout << "Press 5 to quit.\n";  
+        cout << "Type 'show' to see the list.\n"; 
+        cout << "Type 'add' to add to the list.\n"; 
+        cout << "Type 'remove' to remove from the list.\n"; 
+        cout << "Type 'edit' to edit the list.\n";
+        cout << "Type 'quit' to quit.\n";  
 
         string input;
         getline(cin, input);
 
-        if(input == "1") {
-           vector<string> videoGames;
-                                    
+        if(input == "quit") {
+            cout << "Thanks for playing.\n";
+            break;
+        }
+        
+        
+        
+        else if(input == "show") {
+           
+            for(vector<string>::iterator iter = videoGames.begin(); iter != videoGames.end(); iter++) {
+                    cout << *iter << endl;
+                }
+                                        
             cout << "Here are the titles in the favs list.\n";
             cout << "There are " << videoGames.size() << " titles currently.\n";
 
@@ -35,19 +46,42 @@ int main() {
                 cout << i + 1 << ". " << videoGames[i] << "\n";
             }
         }
-        if(input == "2") {
-            vector<string> videoGames;
+        else if(input == "add") {
+           
 
-            while(videoGames.size() < 5) {
-                cout << "You can add up to 5 games.\n";
                 cout << "Which games would you like to add?\n";
-                string input;
-                cin >> input;
+
+                getline(cin, input);
 
                 videoGames.push_back(input);
+
+                
+             
+               
+        }
+        else if(input == "remove") {
+            cout << "What game would you like to remove>?\n";
+
+             sort(videoGames.begin(), videoGames.end());
+
+            for(int i = 0; i < videoGames.size(); i++) {
+                cout << videoGames[i] << endl;
+            }
+
+            cout << "what name should we remove from favs?\n";
+            getline(cin, input);
+
+            auto iter = find(videoGames.begin(), videoGames.end(), input);
+
+            if(iter != videoGames.end()) {
+                cout << "found it!\n";
+                videoGames.erase(iter); 
+            }
+            else{
+                cout << "I could not find that name in favs.\n";
             }
         }
-            ///
+            
         
         else {
             cout << "I don't recognize that input.\n";
