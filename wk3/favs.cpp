@@ -60,7 +60,7 @@ int main() {
                
         }
         else if(input == "remove") {
-            cout << "What game would you like to remove>?\n";
+            cout << "What game would you like to remove?\n";
 
              sort(videoGames.begin(), videoGames.end());
 
@@ -80,6 +80,26 @@ int main() {
             else{
                 cout << "I could not find that name in favs.\n";
             }
+        }
+        else if(input == "edit") {
+            cout << "What game would you like to edit?\n";
+
+          sort(videoGames.begin(), videoGames.end());
+
+            for(int i = 0; i < videoGames.size(); i++) {
+                cout << videoGames[i] << endl;
+            }
+
+            cout << "What edit should we do to the game?\n";
+            getline(cin, input);
+
+            auto iter = find(videoGames.begin(), videoGames.end(), input);
+
+            if(iter != videoGames.end()) {
+                cout << "Found it!\n";
+                cout << "What edit would you like to do?\n";
+            }
+            
         }
             
         
