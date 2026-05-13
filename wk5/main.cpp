@@ -88,6 +88,10 @@ public:
         }
     }
 
+    void changeCharge(int amount) {
+        setCharge(charge += amount);
+    }
+    // getters
     string getName() {
         return name;
     }
@@ -114,20 +118,20 @@ int main() {
 
     robot threepio;
     threepio.setNamename("C-3P0");          // using the setter now
-    threepio.charge = 2;                    // this is a dot syntax
+    threepio.getCharge() = 2;                    // this is a dot syntax
 
     cout << "Here's artoo: " << artoo.name << ".\n";
 
-    cout << artoo.name << " notices thtat " << threepio.name;
+    cout << artoo.getName() << " notices that " << threepio.getName();
     cout << " doesn't have uch battery left. Let's fix that.\n";
 
-    while(threepio.charge < 15) {
-        artoo.charge -= 1;
-        threepio.charge += 1;
+    while(threepio.getCharge() < 15) {
+        artoo.getCharge() -= 1;
+        threepio.getCharge() += 1;
     }
 
-    cout << "threepio's charge is now " << threepio.charge << ".\n";
-    cout << "artoo's charge is now " << artoo.charge << ".\n";
+    cout << "threepio's charge is now " << threepio.getCharge() << ".\n";
+    cout << "artoo's charge is now " << artoo.getCharge() << ".\n";
 
     // using member functions
     artoo.status();
