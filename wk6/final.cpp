@@ -19,7 +19,7 @@ class baseTiki {
         int hunger;
 
         baseTiki() {
-            name = tikiNames[rand() % tikiNames.size()] + " Tiki";
+            name = tikiNames[rand() % tikiNames.size()];
             health = rand() % 8 + 12;
             damage = rand() % 2 + 6;
         }
@@ -67,7 +67,7 @@ int main() {
         baseTiki opponent;
 
         while(true) {
-            cout << "Type what do you want to do?\n";
+            cout << "Type what do you want to do.\n";
             cout << "Train\nStats\nBattle\nFeed\n";
 
             getline(cin, input);
@@ -92,7 +92,15 @@ int main() {
             //battle (atk, hl, run)
             else if(input == "battle") {
                 cout << "A random opponenet has appeared!!\n";
-                cout << "What would you like to do?\n";
+                cout << "Prepare for battle\n";
+
+                
+                vector<baseTiki> stack(6);
+
+                for(int i = 0; i < stack.size(); i++) {
+                stack[i].hello();
+                cout << "\n\n";
+                }
 
                 baseTiki temp, temp2;
                 baseTiki& fighterA = temp;
